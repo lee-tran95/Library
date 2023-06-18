@@ -1,3 +1,8 @@
+const cardContainer = document.querySelector(".card-section")
+const showDialog = document.getElementById('show-dialog')
+const closeDialog = document.getElementById('close-dialog')
+const bookDialog = document.getElementById('add-book-dialog')
+
 let myLibrary = []
 
 class Book{
@@ -18,8 +23,6 @@ let book1 = new Book("Lee", "Tran", 28, true)
 let book2 = new Book("Lee", "Tran", 28, false)
 myLibrary.push(book1, book2)
 
-let cardContainer = document.querySelector(".card-section")
-
 document.body.onload = displayBooks
 
 function displayBooks(){
@@ -39,3 +42,11 @@ function displayBooks(){
         cardContainer.append(article)
     }
 }
+
+showDialog.addEventListener('click', () => {
+    bookDialog.showModal()  
+})
+
+closeDialog.addEventListener('click', () =>{
+    bookDialog.close()
+})

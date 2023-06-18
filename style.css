@@ -1,0 +1,23 @@
+body{
+    margin: 0;
+}
+
+header{
+    display:grid;
+    grid-template-columns: 5fr 1fr;
+    padding: 10px 20px;
+    background-color: aqua;
+}
+
+.card-section{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    background-color: gray;
+    padding: 10px 20px;
+}
+
+.card-section article{
+    background-color: white;
+    padding: 10px;
+}
