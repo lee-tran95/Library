@@ -2,6 +2,7 @@ const cardContainer = document.querySelector(".card-section")
 const showDialog = document.getElementById('show-dialog')
 const closeDialog = document.getElementById('close-dialog')
 const bookDialog = document.getElementById('add-book-dialog')
+const form = document.querySelector("form")
 
 let myLibrary = []
 
@@ -49,4 +50,24 @@ showDialog.addEventListener('click', () => {
 
 closeDialog.addEventListener('click', () =>{
     bookDialog.close()
+})
+
+form.addEventListener("submit", ()=>{
+    const data = new FormData(form)
+    const book = new Book(data.get('title'),data.get('author'),data.get('pages'),data.get('haveRead'))
+    myLibrary.push(book)
+    
+    const article = document.createElement('article')
+    const title = document.createElement('h3')
+    const author= document.createElement('h4')
+    const pages = document.createElement('p')
+    const read = document.createElement('p')
+
+    title.textContent = book.title
+    author.textContent = book.title
+    pages.textContent = book.pages
+    read.textContent = book.read
+    article.append(title, author, pages, read)
+
+    cardContainer.append(article)
 })
