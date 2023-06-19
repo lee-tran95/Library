@@ -1,7 +1,11 @@
 body{
     margin: 0;
 }
-
+.container{
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 150px 5fr;
+}
 header{
     display:grid;
     grid-template-columns: 5fr 1fr;
@@ -11,9 +15,8 @@ header{
 
 .card-section{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
-    background-color: gray;
     padding: 10px 20px;
 }
 

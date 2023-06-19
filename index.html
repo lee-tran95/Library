@@ -24,6 +24,22 @@
     </div>
     <dialog id="add-book-dialog">
         <h3>Add Book Details</h3>
+        <form method="dialog" >
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title">
+            <label for="author"> Author</label>
+            <input type="text" id="author" name="author">
+            <label for="pages">Number of Pages</label>
+            <input type="text" id="pages" name="pages">
+            <fieldset>
+                <legend>Have you read this book?</legend>
+                <input type="radio" id="true" name="haveRead" value="true">
+                <label for="true">True</label>
+                <input type="radio" id="false" name="haveRead" value="false">
+                <label for="false">False</label>
+            </fieldset>
+            <button type="submit">Add Book</button>
+        </form>
         <button id="close-dialog">Close</button>
     </dialog>
 </body>
