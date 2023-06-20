@@ -26,21 +26,38 @@ myLibrary.push(book1, book2)
 
 document.body.onload = displayBooks
 
-function displayBooks(){
-    for(let book of myLibrary){
-        const article = document.createElement('article')
-        const title = document.createElement('h3')
-        const author= document.createElement('h4')
-        const pages = document.createElement('p')
-        const read = document.createElement('p')
+function displayBooks(all = true){
+    if(all){
+        for(let book of myLibrary){
+            const article = document.createElement('article')
+            const title = document.createElement('h3')
+            const author= document.createElement('h4')
+            const pages = document.createElement('p')
+            const read = document.createElement('p')
 
-        title.textContent = book.title
-        author.textContent = book.title
-        pages.textContent = book.pages
-        read.textContent = book.read
-        article.append(title, author, pages, read)
+            title.textContent = book.title
+            author.textContent = book.author
+            pages.textContent = book.pages
+            read.textContent = book.read
+            article.append(title, author, pages, read)
 
-        cardContainer.append(article)
+            cardContainer.append(article)
+        }
+    }else{
+            const book = myLibrary[myLibrary.length-1]
+            const article = document.createElement('article')
+            const title = document.createElement('h3')
+            const author= document.createElement('h4')
+            const pages = document.createElement('p')
+            const read = document.createElement('p')
+
+            title.textContent = book.title
+            author.textContent = book.author
+            pages.textContent = book.pages
+            read.textContent = book.read
+            article.append(title, author, pages, read)
+
+            cardContainer.append(article)
     }
 }
 
@@ -56,18 +73,5 @@ form.addEventListener("submit", ()=>{
     const data = new FormData(form)
     const book = new Book(data.get('title'),data.get('author'),data.get('pages'),data.get('haveRead'))
     myLibrary.push(book)
-    
-    const article = document.createElement('article')
-    const title = document.createElement('h3')
-    const author= document.createElement('h4')
-    const pages = document.createElement('p')
-    const read = document.createElement('p')
-
-    title.textContent = book.title
-    author.textContent = book.title
-    pages.textContent = book.pages
-    read.textContent = book.read
-    article.append(title, author, pages, read)
-
-    cardContainer.append(article)
+    displayBooks(false)
 })
