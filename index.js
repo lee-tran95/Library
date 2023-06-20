@@ -4,6 +4,7 @@ const closeDialog = document.getElementById('close-dialog')
 const bookDialog = document.getElementById('add-book-dialog')
 const form = document.querySelector("form")
 
+
 let myLibrary = []
 
 class Book{
@@ -27,39 +28,38 @@ myLibrary.push(book1, book2)
 document.body.onload = displayBooks
 
 function displayBooks(all = true){
-    if(all){
-        for(let book of myLibrary){
+    let start = all ? 0 : myLibrary.length - 1
+        for(let i = start; i < myLibrary.length; i++){
+            const book = myLibrary[i]
             const article = document.createElement('article')
             const title = document.createElement('h3')
             const author= document.createElement('h4')
             const pages = document.createElement('p')
             const read = document.createElement('p')
+            const button = document.createElement('button')
 
             title.textContent = book.title
             author.textContent = book.author
             pages.textContent = book.pages
             read.textContent = book.read
-            article.append(title, author, pages, read)
+            button.textContent = 'Delete'
+            button.onclick = remove
+            button.classList = 'remove'
+            button.dataset.index = i
+            article.append(title, author, pages, read, button)
+            article.dataset.index = i;
 
             cardContainer.append(article)
         }
-    }else{
-            const book = myLibrary[myLibrary.length-1]
-            const article = document.createElement('article')
-            const title = document.createElement('h3')
-            const author= document.createElement('h4')
-            const pages = document.createElement('p')
-            const read = document.createElement('p')
-
-            title.textContent = book.title
-            author.textContent = book.author
-            pages.textContent = book.pages
-            read.textContent = book.read
-            article.append(title, author, pages, read)
-
-            cardContainer.append(article)
-    }
 }
+
+function remove(){
+    const indexToRemove = this.dataset.index
+    myLibrary.splice(indexToRemove, 1)
+    const bookToRemove = document.querySelector(`[data-index ='${indexToRemove}']`)
+    bookToRemove.remove()
+}
+
 
 showDialog.addEventListener('click', () => {
     bookDialog.showModal()  
