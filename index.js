@@ -26,9 +26,9 @@ myLibrary.push(book1, book2)
 
 document.body.onload = displayBooks
 
-function displayBooks(all = true){
-    let start = all ? 0 : myLibrary.length - 1
-        for(let i = start; i < myLibrary.length; i++){
+function displayBooks(){
+    cardContainer.innerHTML=""
+        for(let i = 0; i < myLibrary.length; i++){
             const book = myLibrary[i]
             const article = document.createElement('article')
             const title = document.createElement('h3')
@@ -61,8 +61,7 @@ function displayBooks(all = true){
 function remove(){
     const indexToRemove = this.dataset.index
     myLibrary.splice(indexToRemove, 1)
-    const bookToRemove = document.querySelector(`[data-index ='${indexToRemove}']`)
-    bookToRemove.remove()
+    displayBooks()
 }
  function readToggle(){
     const toggleIndex = this.dataset.index
@@ -85,5 +84,5 @@ form.addEventListener("submit", ()=>{
     const data = new FormData(form)
     const book = new Book(data.get('title'),data.get('author'),data.get('pages'),data.get('haveRead'))
     myLibrary.push(book)
-    displayBooks(false)
+    displayBooks()
 })
