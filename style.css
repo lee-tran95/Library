@@ -1,16 +1,48 @@
 body{
     margin: 0;
+    background-color: #f0eef1;;
 }
+.reset-button {
+    background-color: transparent;
+    border-width: 0;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    padding: 0;
+}
+
 .container{
     height: 100vh;
     display: grid;
-    grid-template-rows: 150px 5fr;
+    grid-template-rows: 100px 5fr;
 }
 header{
-    display:grid;
-    grid-template-columns: 5fr 1fr;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    box-shadow:  0 1px #D3D3D3;
+}
+header > h2{
+    font-size: 3rem;
+}
+
+header ul li{
+    list-style-type: none;
+}
+
+#show-dialog{
+    font-size: 1.5rem;
     padding: 10px 20px;
-    background-color: aqua;
+    background-color: #f0eef1;
+    border-radius: 10px;
+}
+#show-dialog:hover{
+    background-color:#71797E;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
 .card-section{
