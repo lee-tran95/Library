@@ -37,17 +37,20 @@ function displayBooks(){
             const removeButton = document.createElement('button')
             const toggleReadBtn = document.createElement('button')
 
-            title.textContent = `" ${book.title} "`
+            title.textContent = `"${book.title}"`
             author.textContent = book.author
             pages.textContent =  book.pages + " Pages"
+
             removeButton.textContent = 'Delete'
             removeButton.onclick = remove
             removeButton.classList.add('remove', 'reset-button')
             removeButton.dataset.index = i
+
             toggleReadBtn.textContent = book.read === 'true' ? "Read" : "Not Read"
             toggleReadBtn.onclick = readToggle
             toggleReadBtn.classList.add('read-toggle', 'reset-button')
             toggleReadBtn.dataset.index = i
+            
             article.append(title, author, pages, toggleReadBtn, removeButton)
             article.dataset.index = i;
 

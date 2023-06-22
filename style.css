@@ -32,15 +32,27 @@ header > h2{
 header ul li{
     list-style-type: none;
 }
+.card-section article{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr       );
+}
+.card-section article *{
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-all;
+}
 .remove{
     font-size: 1rem;
     padding: 5px 10px;
+    margin: 5px 10px;
     background-color: #f0eef1;
     border-radius: 10px;
 }
 .read-toggle{
     font-size: 1rem;
     padding: 5px 10px;
+    margin: 5px 10px;
     background-color: #f0eef1;
     border-radius: 10px;
 }
