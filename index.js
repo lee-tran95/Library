@@ -34,6 +34,7 @@ function displayBooks(){
             const title = document.createElement('h3')
             const author= document.createElement('h4')
             const pages = document.createElement('p')
+            const buttons = document.createElement('div')
             const removeButton = document.createElement('button')
             const toggleReadBtn = document.createElement('button')
 
@@ -50,8 +51,11 @@ function displayBooks(){
             toggleReadBtn.onclick = readToggle
             toggleReadBtn.classList.add('read-toggle', 'reset-button')
             toggleReadBtn.dataset.index = i
-            
-            article.append(title, author, pages, toggleReadBtn, removeButton)
+
+            buttons.classList.add('button-group')
+            buttons.append(toggleReadBtn,removeButton)
+
+            article.append(title, author, pages, buttons)
             article.dataset.index = i;
 
             cardContainer.append(article)

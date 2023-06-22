@@ -33,25 +33,37 @@ header ul li{
     list-style-type: none;
 }
 .card-section article{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(5, 1fr       );
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .card-section article *{
     text-align: center;
     word-wrap: break-word;
     word-break: break-all;
 }
+.card-section h3{
+    font-size: 1.5rem;
+}
+
+.card-section h4{
+    font-size: 1.2rem;
+}
+.button-group{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 .remove{
     font-size: 1rem;
-    padding: 5px 10px;
+    padding: 10px 10px;
     margin: 5px 10px;
     background-color: #f0eef1;
     border-radius: 10px;
 }
 .read-toggle{
     font-size: 1rem;
-    padding: 5px 10px;
+    padding: 10px 10px;
     margin: 5px 10px;
     background-color: #f0eef1;
     border-radius: 10px;
