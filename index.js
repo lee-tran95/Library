@@ -20,8 +20,8 @@ class Book{
     }
 }
 
-let book1 = new Book("Lee", "Tran", 28, 'true')
-let book2 = new Book("Lee", "Tran", 28, 'false')
+let book1 = new Book("Title", "Author", 28, 'true')
+let book2 = new Book("Title", "Author", 28, 'false')
 myLibrary.push(book1, book2)
 
 document.body.onload = displayBooks
@@ -34,24 +34,21 @@ function displayBooks(){
             const title = document.createElement('h3')
             const author= document.createElement('h4')
             const pages = document.createElement('p')
-            const read = document.createElement('p')
             const removeButton = document.createElement('button')
             const toggleReadBtn = document.createElement('button')
 
-            title.textContent = book.title
+            title.textContent = `" ${book.title} "`
             author.textContent = book.author
-            pages.textContent = book.pages
-            read.textContent = book.read
-            read.classList = "status"
+            pages.textContent =  book.pages + " Pages"
             removeButton.textContent = 'Delete'
             removeButton.onclick = remove
-            removeButton.classList = 'remove'
+            removeButton.classList.add('remove', 'reset-button')
             removeButton.dataset.index = i
-            toggleReadBtn.textContent = 'toggle read status'
+            toggleReadBtn.textContent = book.read === 'true' ? "Read" : "Not Read"
             toggleReadBtn.onclick = readToggle
-            toggleReadBtn.classList = 'read-toggle'
+            toggleReadBtn.classList.add('read-toggle', 'reset-button')
             toggleReadBtn.dataset.index = i
-            article.append(title, author, pages, read, removeButton, toggleReadBtn)
+            article.append(title, author, pages, toggleReadBtn, removeButton)
             article.dataset.index = i;
 
             cardContainer.append(article)
@@ -67,8 +64,7 @@ function remove(){
     const toggleIndex = this.dataset.index
     myLibrary[toggleIndex].toggleRead()
     const statusToggle = document.querySelector(`[data-index ='${toggleIndex}']`)
-    statusToggle.querySelector('.status').textContent = myLibrary[toggleIndex].read
-    
+    statusToggle.querySelector('.read-toggle').textContent = myLibrary[toggleIndex].read === 'true' ? "Read" : "Not Read"  
  }
 
 

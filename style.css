@@ -32,7 +32,18 @@ header > h2{
 header ul li{
     list-style-type: none;
 }
-
+.remove{
+    font-size: 1rem;
+    padding: 5px 10px;
+    background-color: #f0eef1;
+    border-radius: 10px;
+}
+.read-toggle{
+    font-size: 1rem;
+    padding: 5px 10px;
+    background-color: #f0eef1;
+    border-radius: 10px;
+}
 #show-dialog{
     font-size: 1.5rem;
     padding: 10px 20px;
