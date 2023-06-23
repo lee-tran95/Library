@@ -36,6 +36,7 @@ header ul li{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    border-radius: 5px;
 }
 .card-section article *{
     text-align: center;
@@ -79,7 +80,31 @@ header ul li{
     transition: 0.5s;
     cursor: pointer;
 }
-
+#add-book-dialog h3{
+    text-align: center;
+}
+#add-book-dialog form{
+    display: flex;
+    flex-direction: column;
+}
+#add-book-dialog *{
+    margin: 5px;
+}
+#add-book-dialog button{
+    font-size: 1rem;
+    padding: 10px 20px;
+    margin: 5px;
+    background-color: #f0eef1;
+    border-radius: 10px;
+}
+#close-dialog{
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 2rem;
+    margin: 0 5px;
+}
 .card-section{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));

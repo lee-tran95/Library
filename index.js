@@ -20,10 +20,6 @@ class Book{
     }
 }
 
-let book1 = new Book("Title", "Author", 28, 'true')
-let book2 = new Book("Title", "Author", 28, 'false')
-myLibrary.push(book1, book2)
-
 document.body.onload = displayBooks
 
 function displayBooks(){
